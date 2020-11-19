@@ -1,0 +1,33 @@
+{
+    "name": "pekand/websocketserver",
+    "type": "library",
+    "description": "websocket server",
+    "keywords": ["websocketserver"],
+    "homepage": "https://www.pekand.com",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:pekand/socketserver.git"
+        }
+    ],
+    "require": {
+        "pekand/socketserver": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pekand <pekand@gmail.com> ",
+            "email": "pekand@gmail.com",
+            "homepage": "https://www.pekand.com",
+            "role": ""
+        }
+    ],
+    "require": {
+        "php": ">=7.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "pekand\\WebSocketServer\\": "src/"
+        }
+    }
+}
