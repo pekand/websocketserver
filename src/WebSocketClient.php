@@ -27,13 +27,14 @@ class WebsocketClient extends WebSocketServerBase {
 
 
         $client = $this;
-        $this->client->addReceiveHeader(function($headerFromServer) use ($client) {
+        $this->client->afterReceiveHeader(function($headerFromServer) use ($client) {
             if (isset($client->afterConnect) && is_callable($client->afterConnect)) {
-                call_user_func_array($client->afterConnect, [$client]);
-            }    
+                return call_user_func_array($client->afterConnect, [$client]);
+            }
+            return false;
         });
 
-        $this->client->addListener(function($data) {
+        $this->client->addListener(function($client, $data) {
            
             $frames = [];
             
