@@ -37,8 +37,10 @@ $client->addAction('action2', function ($client, $data) {
 
 $pool = new WebSocketPool();
 
-$pool->addAction(['delay'=>1000000, 'repeat'=>1000000], function(){
+$pool->addAction(['delay'=>1000000, 'repeat'=>1000000], function() use ($pool){
     echo "delay\n";
+    $client = new WebSocketClient();
+    $pool->addClient($client);
 });
 
 $pool->listen([
